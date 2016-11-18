@@ -1,12 +1,13 @@
 angular.module('movieApp', ['ui.router', 'ngResource', 'movieApp.controllers', 'movieApp.services']);
 
 angular.module('movieApp').config(function($stateProvider) {
+
   $stateProvider.state('movies', { // state for showing all movies
     url: '/movies',
     templateUrl: 'partials/movies.html',
     controller: 'MovieListController'
   }).state('viewMovie', { //state for showing single movie
-    url: '/movies/:id/view',
+    url: '/movies/:id',
     templateUrl: 'partials/movie-view.html',
     controller: 'MovieViewController'
   }).state('newMovie', { //state for adding a new movie
@@ -14,7 +15,7 @@ angular.module('movieApp').config(function($stateProvider) {
     templateUrl: 'partials/movie-add.html',
     controller: 'MovieCreateController'
   }).state('editMovie', { //state for updating a movie
-    url: '/movies/:id/edit',
+    url: '/movies/:id',
     templateUrl: 'partials/movie-edit.html',
     controller: 'MovieEditController'
   });

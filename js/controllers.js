@@ -8,9 +8,11 @@ angular.module('movieApp.controllers', []).controller('MovieListController', fun
       });
     }
   };
-}).controller('MovieViewController', function($scope, $stateParams, Movie) {
+})
+.controller('MovieViewController', function($scope, $stateParams, Movie) {
   $scope.movie = Movie.get({ id: $stateParams.id }); //Get a single movie.Issues a GET to /api/movies/:id
-}).controller('MovieCreateController', function($scope, $state, $stateParams, Movie) {
+})
+.controller('MovieCreateController', function($scope, $state, $stateParams, Movie) {
   $scope.movie = new Movie();  //create new movie instance. Properties will be set via ng-model on UI
 
   $scope.addMovie = function() { //create a new movie. Issues a POST to /api/movies
@@ -18,7 +20,8 @@ angular.module('movieApp.controllers', []).controller('MovieListController', fun
       $state.go('movies'); // on success go back to home i.e. movies state.
     });
   };
-}).controller('MovieEditController', function($scope, $state, $stateParams, Movie) {
+})
+.controller('MovieEditController', function($scope, $state, $stateParams, Movie) {
   $scope.updateMovie = function() { //Update the edited movie. Issues a PUT to /api/movies/:id
     $scope.movie.$update(function() {
       $state.go('movies'); // on success go back to home i.e. movies state.
